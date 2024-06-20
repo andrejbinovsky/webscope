@@ -1,6 +1,13 @@
-import { auth } from '@/lib/auth'
+import Conversation from '@/components/conversation'
+import Conversations from '@/components/conversations'
 
 export default async function Home() {
-  const session = await auth()
-  return <main className=''>{session?.user.id}</main>
+  return (
+    <main className=''>
+      <div className={'flex'}>
+        <Conversations className={'w-1/4'} />
+        <Conversation className={'mx-20 w-3/4'} />
+      </div>
+    </main>
+  )
 }

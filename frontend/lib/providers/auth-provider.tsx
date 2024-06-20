@@ -8,7 +8,7 @@ type Props = {
 
 const AuthProvider = ({ children }: Props) => {
   return (
-    <SessionProvider refetchInterval={9 * 60} refetchOnWindowFocus={true}>
+    <SessionProvider refetchInterval={10 * 60} refetchOnWindowFocus={true}>
       {children}
     </SessionProvider>
   )

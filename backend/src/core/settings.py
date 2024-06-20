@@ -10,6 +10,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["localhost", "api", "0.0.0.0"]
 
+DJANGO_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S"
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -19,11 +21,14 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "rest_framework_simplejwt",
+    "corsheaders",
+    "core",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -97,3 +102,23 @@ SIMPLE_JWT = {
     "ALGORITHM": "HS512",
     "SIGNING_KEY": environ.get("JWT_SECRET_KEY"),
 }
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ],
+    "DATETIME_FORMAT": DJANGO_DATE_FORMAT,
+}
+
+# cors
+CORS_ALLOWED_ORIGINS = ["http://localhost:3000"]
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "authorization",
+    "content-type",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+]
+CORS_ALLOW_CREDENTIALS = True

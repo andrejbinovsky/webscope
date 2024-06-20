@@ -1,3 +1,5 @@
-# todo
+# what can be improved
 
-- registration
+- pre-commit hooks
+- python ruff linter
+- endless fetching + pagination

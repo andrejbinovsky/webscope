@@ -26,7 +26,7 @@ const jwt = async ({ token, user }: { token: JWT; user?: User | AdapterUser }) =
   // Refresh token
   if (Date.now() / 1000 > decodeToken(token.access).exp) {
     try {
-      const res = await axios.post(`${process.env.API_URL}/token/refresh/`, {
+      const res = await axios.post(`${process.env.INTERNAL_API_URL}/token/refresh/`, {
         refresh: token.refresh
       })
       token.access = res.data.access
@@ -83,7 +83,7 @@ export const authOptions: NextAuthOptions = {
           throw new Error('Credentials are undefined. Please try again.')
         }
         try {
-          const res = await axios.post(`${process.env.API_URL}/token/`, credentials)
+          const res = await axios.post(`${process.env.INTERNAL_API_URL}/token/`, credentials)
           const access = decodeToken(res.data.access)
           return {
             id: access.user_id,
