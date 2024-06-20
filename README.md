@@ -2,7 +2,7 @@
 
 - pre-commit hooks
 - python ruff linter
-- endless fetching + pagination
+- endless fetching + pagination (BE DRF + tanstack query)
 - more tests
 
 # how to run the project
