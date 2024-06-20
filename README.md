@@ -14,3 +14,9 @@ $ docker-compose up
 $ docker-compose exec api python src/manage.py create_user
 # enjoy the app on http://localhost:3000 
 ```
+
+# how to run the tests
+
+```bash
+$ docker-compose exec api python src/manage.py test core.tests
+```
