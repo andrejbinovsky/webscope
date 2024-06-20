@@ -3,11 +3,15 @@
 - pre-commit hooks
 - python ruff linter
 - endless fetching + pagination (BE DRF + tanstack query)
-- more tests
+- about the test (with more time I would)
+    - use drf tests
+    - validate the auth tokens
+    - test the frontend with playwright or similar tool
 
 # how to run the project
 
 ```bash
+# create .env.backend & env.frontend files in root from templates
 $ docker-compose up
 # create user in docker
 # implicit credentials: email:admin@admin.com / pass:admin
