@@ -56,7 +56,7 @@ const Conversation = ({ className }: ConversationProps) => {
     } else {
       setMessages([])
     }
-  }, [conversationId, session?.accessToken])
+  }, [conversationId, session?.accessToken, getConservationMessagesMutate])
 
   const onDownloadProgress = async ({ data, chunkCount }: { data: string; chunkCount: number }) => {
     if (chunkCount === 0 && messages.length === 0) {

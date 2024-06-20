@@ -34,7 +34,7 @@ services:
       db:
         condition: service_healthy
   web:
-    command: bash -c "pnpm install && pnpm dev"
+    command: bash -c "pnpm install && pnpm build && pnpm start"
     build:
       context: frontend
     volumes:
